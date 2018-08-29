@@ -1,0 +1,26 @@
+<div class="ui segment">
+  <p *ngIf="todoService.items.length === 0; else showList">No todo item available</p>
+  <ng-template #showList>
+    <div *ngIf="showList" class="ui relaxed divided list">
+      <div class="item" *ngFor="let item of todoService.items">
+        <div class="content">
+          <div class="header">
+            <button
+              class="ui button negative tiny compact circular icon"
+              (click)="todoService.deleteTodo(item.id)">
+              <i class="times icon"></i>
+            </button>
+            &nbsp;
+            <span
+              (click)="todoService.toggleTodo(item.id)"
+              style="cursor: pointer;"
+              [style.textDecoration]="item.isCompleted ? 'line-through' : null"
+              [style.color]="item.isCompleted ? 'grey' : null">
+              {{ item.title }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
