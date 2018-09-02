@@ -1,5 +1,6 @@
 import { TodoService } from './todo.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
@@ -15,7 +16,8 @@ import { TodoInputComponent } from './todo-input/todo-input.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     TodoService

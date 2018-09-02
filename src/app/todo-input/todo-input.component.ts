@@ -8,20 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoInputComponent implements OnInit {
 
+  title;
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
-  createTodo(titleInput: HTMLInputElement) {
-    const title = titleInput.value;
-    if (title.trim() === '') {
+  createTodo() {
+    if (this.title.trim() === '') {
       alert('Title cannot be empty!');
       return;
     }
 
-    this.todoService.createTodo(title);
-    titleInput.value = '';
+    this.todoService.createTodo(this.title);
+    this.title = '';
   }
 
 }
